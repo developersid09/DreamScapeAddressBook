@@ -1,5 +1,5 @@
 
-import React, { useMemo, useState, useCallback } from "react";
+import React, { useMemo, useState, useCallback, useEffect } from "react";
 import { View, FlatList, ActivityIndicator, StyleSheet, Text, ListRenderItem } from "react-native";
 import { useContacts } from "../hooks/useContacts";
 import { AddressCard } from "../components/AddressCard";
@@ -11,7 +11,7 @@ const AddressBookScreen: React.FC = () => {
     const { list, favourites, loading, error, fetchContacts, toggleFav } = useContacts();
     const [query, setQuery] = useState("");
 
-    React.useEffect(() => {
+    useEffect(() => {
         fetchContacts();
     }, [fetchContacts]);
 

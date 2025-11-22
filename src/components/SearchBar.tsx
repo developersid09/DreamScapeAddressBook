@@ -11,7 +11,7 @@ export const SearchBar: React.FC<Props> = ({ onSearch, placeholder = "Search con
   const [q, setQ] = useState("");
 
   useEffect(() => {
-    const t = setTimeout(() => onSearch(q.trim()), 300);
+    const t = setTimeout(() => onSearch(q.trim()), 300);//debounce
     return () => clearTimeout(t);
   }, [q, onSearch]);
 

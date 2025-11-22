@@ -17,7 +17,7 @@ const ProfileScreen: React.FC = () => {
             setLoading(true);
             try {
                 const res = await api.get(`/users/${authUser.id}`);
-                setProfile(res.data);
+                setProfile(res?.data);
             } catch (err) {
                 console.warn("profile fetch failed", err);
             } finally {
